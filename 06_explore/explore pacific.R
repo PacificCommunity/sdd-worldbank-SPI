@@ -1,5 +1,5 @@
 # some illustrative analysis with the SPI data the bank
-# has committed in hte .Rdata object
+# has committed in the .Rdata object
 #
 
 #---------------funcationality and data prep---------------
@@ -8,9 +8,15 @@ library(spcstyle)
 library(RColorBrewer)
 library(tidyverse)
 
+# load previously prepared version of the data
 load(".RData")
-# recommended for familiarisation: View(SPI) View(metadata) noting the column
-# names in metadata don't exactly match those in SPI! but they are mostly right
+
+# recommended for familiarisation: 
+# View(SPI) 
+# View(metadata) 
+#
+# noting the column names in metadata don't exactly match those in SPI! but they
+# are mostly right.
 
 picts <- c(
   "Australia",
@@ -36,11 +42,11 @@ picts <- c(
 )
 
 
-# Pacific-only version of the SPI data
+# Pacific-only version of the SPI data:
 spi_pac <- filter(SPI, country %in% picts)
 
 #--------------------time series--------------
-
+# Colour palette:
 pal <- c(spc_cols(1:5), "black")
 
 p <- spi_pac |>
