@@ -18,10 +18,12 @@ load(".RData")
 # noting the column names in metadata don't exactly match those in SPI! but they
 # are mostly right.
 
+# some of these countries are commented out just to save space, may want them
+# in or not depending on who the audience is.
 picts <- c(
   "Australia",
   "New Zealand",                    
-  "France",
+  # "France",
   "Fiji",  
   "Samoa",
   "Solomon Islands",
@@ -31,14 +33,14 @@ picts <- c(
   "Micronesia, Fed. Sts.",         
   "Marshall Islands",        
   "American Samoa",                
-  "French Polynesia",              
+  # "French Polynesia",              
   "Guam",             
   "Nauru",                         
-  "New Caledonia",
+  # "New Caledonia",
   "Northern Mariana Islands",
-  "Palau",     
-  "Tonga",                        
-  "Tuvalu"
+  "Palau"     
+  , "Tonga"                        
+  #", Tuvalu"
 )
 
 
@@ -62,6 +64,7 @@ p <- spi_pac |>
   facet_wrap(~country) +
   scale_colour_manual(values = pal) +
   scale_linetype_manual(guide = "none", values = c(1,0)) +
+  theme(axis.text = element_text(colour = "black")) +
   labs(x = "", colour = "", y = "SPI Score",
        title = "Statistical Performance Indicator scores",
        subtitle = "All PICTs for whom data is available and selected other SPC members")
