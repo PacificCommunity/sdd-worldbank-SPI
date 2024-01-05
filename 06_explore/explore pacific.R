@@ -9,7 +9,7 @@ library(RColorBrewer)
 library(tidyverse)
 
 # load previously prepared version of the data
-load(".RData")
+SPI <- read_csv("03_output_data/SPI_index.csv")
 
 # recommended for familiarisation: 
 # View(SPI) 
@@ -90,7 +90,7 @@ spi_pac |>
   spread(variable, value)
 
 
-# which year is hte latest? (always 2019)
+# which year is hte latest? (always 2022)
 spi_pac |>
   select(country, date, SPI.D4.1.1.POPU:SPI.D4.2.3.CRVS) |>
   gather(variable, value, -country, -date) |>
